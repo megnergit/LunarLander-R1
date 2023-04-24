@@ -1,5 +1,9 @@
 gymnasium
 stable-baselines3
 tqdm
+tqdm rich
+
+
+
 
 
