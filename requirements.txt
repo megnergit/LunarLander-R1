@@ -1,4 +1,4 @@
-gymasium
+gymnasium
 stable-baselines3
 tqdm
 
