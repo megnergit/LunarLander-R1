@@ -40,7 +40,7 @@ def make_env(env_id: str, rank: int, seed: int=0):
 #---------------------------------------------------------
 def train2(): 
 
-    n_env = 8
+    n_env = 4
     env_id = "LunarLander-v2"
 
     env = SubprocVecEnv([make_env(env_id, i) for i in range(n_env)])
@@ -68,7 +68,8 @@ def train2():
     #---------------------------------------------------------
     # model = DQN('MlpPolicy', env, verbose=0)
     model = PPO('MlpPolicy', env, verbose=0)
-    model.learn(total_timesteps=int(1_000_000), 
+#    model.learn(total_timesteps=int(1_000_000), 
+    model.learn(total_timesteps=int(10_000), 
                 callback=eval_callback,
                 progress_bar=True) 
     # model.learn(total_timesteps=int(1_000))
@@ -91,8 +92,8 @@ def eval2():
 
 #---------------------------------------------------------
 if __name__ == "__main__":
-#    train2()
-    eval2()
+    train2()
+#    eval2()
 
 
 #---------------------------------------------------------
