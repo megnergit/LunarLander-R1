@@ -17,6 +17,8 @@ import logging
 
 from tqdm.rich import tqdm
 # from tqdm import rich
+# from timeit import timeit
+from time import time
 import pretty_errors
 import pdb
 # import pyglet
@@ -41,13 +43,12 @@ def make_env(env_id: str, rank: int, seed: int=0):
 #---------------------------------------------------------
 def train2(): 
 
-    n_env = 4
+    n_env = 12
     env_id = "LunarLander-v2"
 
     env = SubprocVecEnv([make_env(env_id, i) for i in range(n_env)])
-
-
     eval_env = SubprocVecEnv([make_env(env_id, i) for i in range(n_env)])
+
 #    eval_env = Monitor(eval_env)
 
 
@@ -93,9 +94,11 @@ def eval2():
 
 #---------------------------------------------------------
 if __name__ == "__main__":
+    start_time = time()
     train2()
 #    eval2()
-
+    end_time = time()
+    print(f"{end_time - start_time:4.2f} s")
 
 #---------------------------------------------------------
 
