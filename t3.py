@@ -41,14 +41,14 @@ def train3():
                                                            min_evals=51, verbose=1)
     eval_callback = EvalCallback(eval_env, 
                                 callback_after_eval=stop_train_callback, 
-                                eval_freq = 250,
+                                eval_freq = 1_000,
                                 n_eval_episodes=5, 
                                 render=False, verbose=1)
     #---------------------------------------------------------
     # create the model and the training loop
     start_time = time()
     model = PPO('MlpPolicy', env, verbose=0)
-    model.learn(total_timesteps=int(1e4), 
+    model.learn(total_timesteps=int(1e5), 
                 callback=eval_callback,
                 progress_bar=True) 
 
@@ -63,7 +63,7 @@ def train3():
         env = SubprocVecEnv([make_env(env_id, i) for i in range(n_env)])
         eval_env = SubprocVecEnv([make_env(env_id, i) for i in range(n_env)])
         model = PPO('MlpPolicy', env, verbose=0)
-        model.learn(total_timesteps=int(1e4), 
+        model.learn(total_timesteps=int(1e5), 
                     callback=eval_callback,
                     progress_bar=True) 
 
