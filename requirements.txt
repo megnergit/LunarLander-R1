@@ -3,6 +3,9 @@ gymnasium[box2d]
 stable-baselines3
 tqdm
 tqdm[rich]
+pretty-errors
+
+
 
 
 
