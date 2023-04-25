@@ -42,7 +42,7 @@ def train3():
     eval_callback = EvalCallback(eval_env, 
                                 callback_after_eval=stop_train_callback, 
                                 eval_freq = 250,
-                                n_eval_episodes=5                                , 
+                                n_eval_episodes=5, 
                                 render=False, verbose=1)
     #---------------------------------------------------------
     # create the model and the training loop
@@ -57,9 +57,11 @@ def train3():
     # repeat the experiment using GPU if available
     if torch.cuda.is_available():
         start_time = time()
-        env = DummyVecEnv([lambda: gym.make('LunarLander-v2')])
-        env = VecNormalize(env, norm_obs=True, norm_reward=False, clip_obs=10.)
-        env = VecFrameStack(env, n_stack=4)
+        # env = DummyVecEnv([lambda: gym.make('LunarLander-v2')])
+        # env = VecNormalize(env, norm_obs=True, norm_reward=False, clip_obs=10.)
+        # env = VecFrameStack(env, n_stack=4)
+        env = SubprocVecEnv([make_env(env_id, i) for i in range(n_env)])
+        eval_env = SubprocVecEnv([make_env(env_id, i) for i in range(n_env)])
         model = PPO('MlpPolicy', env, verbose=0)
         model.learn(total_timesteps=int(1e4), 
                     callback=eval_callback,
