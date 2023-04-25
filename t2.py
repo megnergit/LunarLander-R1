@@ -43,7 +43,7 @@ def make_env(env_id: str, rank: int, seed: int=0):
 #---------------------------------------------------------
 def train2(): 
 
-    n_env = 12
+    n_env = 4
     env_id = "LunarLander-v2"
 
     env = SubprocVecEnv([make_env(env_id, i) for i in range(n_env)])
