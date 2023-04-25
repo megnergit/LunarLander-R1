@@ -43,7 +43,7 @@ def train3():
                                 callback_after_eval=stop_train_callback, 
                                 eval_freq = 250,
                                 n_eval_episodes=5, 
-                                render=False, verbose=1)
+                                render=True, verbose=1)
     #---------------------------------------------------------
     # create the model and the training loop
     start_time = time()
