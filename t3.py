@@ -9,6 +9,7 @@ from stable_baselines3.common.utils import set_random_seed
 from time import time
 
 from tqdm.rich import tqdm
+import rich
 import pretty_errors
 #===========================================================
 # create the environment
@@ -42,7 +43,7 @@ def train3():
                                 callback_after_eval=stop_train_callback, 
                                 eval_freq = 1_000,
                                 n_eval_episodes=11, 
-                                render=False, verbose=1)
+                                render=False, verbose=0)
     #---------------------------------------------------------
     # create the model and the training loop
     start_time = time()
