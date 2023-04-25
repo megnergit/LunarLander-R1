@@ -15,8 +15,8 @@ from stable_baselines3.common.utils import set_random_seed
 
 import logging
 
-# from tqdm.rich import tqdm
-from tqdm import rich
+from tqdm.rich import tqdm
+# from tqdm import rich
 import pretty_errors
 import pdb
 # import pyglet
