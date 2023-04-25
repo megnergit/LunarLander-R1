@@ -1,6 +1,7 @@
 gymnasium
 gymnasium[box2d]
 stable-baselines3
+pyglet
 tqdm
 rich
 pretty-errors
