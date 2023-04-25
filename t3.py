@@ -2,7 +2,6 @@ import torch
 import gym
 from stable_baselines3 import PPO
 from stable_baselines3.common.monitor import Monitor
-!git
 from stable_baselines3.common.vec_env import DummyVecEnv, VecNormalize, VecFrameStack, SubprocVecEnv
 from stable_baselines3.common.callbacks import EvalCallback, StopTrainingOnNoModelImprovement
 from stable_baselines3.common.utils import set_random_seed
