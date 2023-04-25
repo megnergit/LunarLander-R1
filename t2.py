@@ -15,7 +15,7 @@ from stable_baselines3.common.utils import set_random_seed
 
 import logging
 
-# from tqdm.rich import tqdm
+# rom tqdm.rich import tqdm
 from tqdm import rich
 import pretty_errors
 import pdb
